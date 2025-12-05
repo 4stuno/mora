@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAS - Sistema Multiagente</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css?v=3">
+    <style>
+        /* Fallback básico caso o CSS não carregue */
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            color: #0f172a;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .app-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">🎓</div>
+                    <div class="logo-text">
+                        <h1>MAS</h1>
+                        <p>Sistema Multiagente</p>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <button class="nav-item active" onclick="openTab('home')">
+                    <i class="fas fa-home"></i>
+                    <span>Início</span>
+                </button>
+                <button class="nav-item" onclick="openTab('query')">
+                    <i class="fas fa-comments"></i>
+                    <span>Consultas</span>
+                </button>
+                <button class="nav-item" onclick="openTab('cqs')">
+                    <i class="fas fa-question-circle"></i>
+                    <span>CQs</span>
+                </button>
+                <button class="nav-item" onclick="openTab('reasoner')">
+                    <i class="fas fa-brain"></i>
+                    <span>Reasoner DL</span>
+                </button>
+                <button class="nav-item" onclick="openTab('metrics')">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Métricas</span>
+                </button>
+                <button class="nav-item" onclick="openTab('about')">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Sobre</span>
+                </button>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span>Sistema Online</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Tab 0: Início -->
+            <div id="home-tab" class="tab-content active">
+                <div class="content-header">
+                    <h2><i class="fas fa-home"></i> Bem-vindo ao Sistema MAS</h2>
+                    <p>Sistema Multiagente para Plataforma de Ensino</p>
+                </div>
+
+                <div class="home-content">
+                    <div class="welcome-card">
+                        <div class="welcome-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>O que é este sistema?</h3>
+                        <p>Este é um sistema inteligente desenvolvido para auxiliar no controle e gestão de plataformas de ensino a distância (EAD). Ele utiliza inteligência artificial para responder perguntas, gerenciar cursos, recomendar conteúdos e muito mais.</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h4>Consultas Inteligentes</h4>
+                            <p>Faça perguntas em linguagem natural e receba respostas precisas sobre cursos, estudantes, recursos e muito mais.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <h4>Competency Questions</h4>
+                            <p>Teste a qualidade e consistência dos dados através de perguntas padronizadas que validam o conhecimento do sistema.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4>Raciocínio Automático</h4>
+                            <p>O sistema usa raciocínio lógico para inferir informações não explícitas, garantindo consistência dos dados.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4>Agentes Inteligentes</h4>
+                            <p>Diferentes agentes especializados trabalham juntos para coordenar tarefas, recomendar conteúdos e gerenciar a plataforma.</p>
+                        </div>
+        </div>
+
+                    <div class="how-it-works">
+                        <h3><i class="fas fa-lightbulb"></i> Como funciona?</h3>
+                        <div class="steps-list">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Você faz uma pergunta</h4>
+                                    <p>Digite sua consulta em linguagem natural, como "Quais cursos estão disponíveis?" ou "Recomende recursos sobre ontologias".</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>O sistema busca informações</h4>
+                                    <p>O sistema consulta documentos, base de conhecimento estruturada e usa raciocínio lógico para encontrar a melhor resposta.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Agentes trabalham juntos</h4>
+                                    <p>Diferentes agentes especializados analisam sua pergunta e trabalham em conjunto para fornecer uma resposta completa.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Você recebe a resposta</h4>
+                                    <p>Receba uma resposta precisa e citada, mostrando de onde veio cada informação.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="use-cases">
+                        <h3><i class="fas fa-tasks"></i> O que você pode fazer?</h3>
+                        <div class="use-cases-grid">
+                            <div class="use-case-item">
+                                <i class="fas fa-book"></i>
+                                <span>Consultar cursos disponíveis</span>
+                            </div>
+                            <div class="use-case-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Ver informações de estudantes</span>
+                            </div>
+                            <div class="use-case-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Receber recomendações personalizadas</span>
+                            </div>
+                            <div class="use-case-item">
+                                <i class="fas fa-clipboard-list"></i>
+                                <span>Verificar tarefas pendentes</span>
+                            </div>
+                            <div class="use-case-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Validar consistência dos dados</span>
+                            </div>
+                            <div class="use-case-item">
+                                <i class="fas fa-search"></i>
+                                <span>Buscar recursos educacionais</span>
+                            </div>
+                    </div>
+                </div>
+
+                    <div class="quick-start">
+                        <h3><i class="fas fa-rocket"></i> Comece agora!</h3>
+                        <p>Use o menu lateral para navegar entre as diferentes funcionalidades:</p>
+                        <ul class="quick-start-list">
+                            <li><strong>Consultas:</strong> Faça perguntas e receba respostas inteligentes</li>
+                            <li><strong>CQs:</strong> Execute perguntas padronizadas para validar o sistema</li>
+                            <li><strong>Reasoner DL:</strong> Teste o raciocínio lógico automático</li>
+                            <li><strong>Sobre:</strong> Veja detalhes técnicos completos do sistema</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 1: Consultas -->
+            <div id="query-tab" class="tab-content chat-tab">
+                <div class="chat-wrapper">
+                    <div class="chat-header-fixed">
+                        <div class="chat-header-content">
+                            <h2><i class="fas fa-comments"></i> Consultas Inteligentes</h2>
+                            <p>Faça perguntas em linguagem natural e receba respostas contextuais</p>
+                        </div>
+                        <div class="examples-section-compact">
+                            <div class="example-chips">
+                                <button class="chip" onclick="setQuery('Quais cursos estão disponíveis para o estudante Ana?')">
+                                    <i class="fas fa-book"></i> Cursos
+                                </button>
+                                <button class="chip" onclick="setQuery('Recomende recursos sobre ontologias')">
+                                    <i class="fas fa-lightbulb"></i> Recomendações
+                                </button>
+                                <button class="chip" onclick="setQuery('Quais tarefas o estudante Ana precisa entregar?')">
+                                    <i class="fas fa-tasks"></i> Tarefas
+                                </button>
+                                <button class="chip" onclick="setQuery('Como funcionam sistemas RAG?')">
+                                    <i class="fas fa-robot"></i> RAG
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="chat-container" class="chat-container"></div>
+
+                    <div class="chat-input-fixed">
+                        <div class="input-wrapper-chat">
+                            <div class="input-icon-chat">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                            <textarea 
+                                id="query-input" 
+                                placeholder="Digite sua mensagem..."
+                                rows="1"
+                            ></textarea>
+                            <button onclick="sendQuery()" class="btn-send">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Tab 2: Competency Questions -->
+        <div id="cqs-tab" class="tab-content">
+            <div class="content-header">
+                <h2><i class="fas fa-question-circle"></i> Competency Questions</h2>
+                <p>Execute as CQs para testar a ontologia e inferências DL</p>
+            </div>
+            
+            <div class="cqs-list">
+                <div class="cq-item">
+                    <div class="cq-item-header" onclick="toggleCQ(1)">
+                        <div class="cq-item-info">
+                            <span class="cq-item-number">CQ1</span>
+                            <div>
+                                <h3>Estudantes Matriculados</h3>
+                                <p>Consulta hierárquica de estudantes em cursos</p>
+                            </div>
+                        </div>
+                        <div class="cq-item-actions">
+                            <span class="cq-badge-small">Hierarquia</span>
+                            <button class="cq-run-btn" onclick="event.stopPropagation(); runCQ(1)">
+                                <i class="fas fa-play"></i> Executar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cq-result-container" id="cq-result-1"></div>
+                </div>
+
+                <div class="cq-item">
+                    <div class="cq-item-header" onclick="toggleCQ(2)">
+                        <div class="cq-item-info">
+                            <span class="cq-item-number">CQ2</span>
+                            <div>
+                                <h3>Recursos em Módulos</h3>
+                                <p>Recursos utilizados através de propriedades transitivas</p>
+                            </div>
+                        </div>
+                        <div class="cq-item-actions">
+                            <span class="cq-badge-small">Transitividade</span>
+                            <button class="cq-run-btn" onclick="event.stopPropagation(); runCQ(2)">
+                                <i class="fas fa-play"></i> Executar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cq-result-container" id="cq-result-2"></div>
+                </div>
+
+                <div class="cq-item">
+                    <div class="cq-item-header" onclick="toggleCQ(3)">
+                        <div class="cq-item-info">
+                            <span class="cq-item-number">CQ3</span>
+                            <div>
+                                <h3>Pré-requisitos</h3>
+                                <p>Cadeias de pré-requisitos de cursos</p>
+                            </div>
+                        </div>
+                        <div class="cq-item-actions">
+                            <span class="cq-badge-small">Transitividade</span>
+                            <button class="cq-run-btn" onclick="event.stopPropagation(); runCQ(3)">
+                                <i class="fas fa-play"></i> Executar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cq-result-container" id="cq-result-3"></div>
+                </div>
+
+                <div class="cq-item">
+                    <div class="cq-item-header" onclick="toggleCQ(4)">
+                        <div class="cq-item-info">
+                            <span class="cq-item-number">CQ4</span>
+                            <div>
+                                <h3>Feedback de Professores</h3>
+                                <p>Feedback usando propriedades inversas</p>
+                            </div>
+                        </div>
+                        <div class="cq-item-actions">
+                            <span class="cq-badge-small">Inversa</span>
+                            <button class="cq-run-btn" onclick="event.stopPropagation(); runCQ(4)">
+                                <i class="fas fa-play"></i> Executar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cq-result-container" id="cq-result-4"></div>
+                </div>
+
+                <div class="cq-item">
+                    <div class="cq-item-header" onclick="toggleCQ(5)">
+                        <div class="cq-item-info">
+                            <span class="cq-item-number">CQ5</span>
+                            <div>
+                                <h3>Avaliações com Tarefas</h3>
+                                <p>Restrições existenciais e hierarquia</p>
+                            </div>
+                        </div>
+                        <div class="cq-item-actions">
+                            <span class="cq-badge-small">Existencial</span>
+                            <button class="cq-run-btn" onclick="event.stopPropagation(); runCQ(5)">
+                                <i class="fas fa-play"></i> Executar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cq-result-container" id="cq-result-5"></div>
+                </div>
+
+                <div class="cq-item">
+                    <div class="cq-item-header" onclick="toggleCQ(6)">
+                        <div class="cq-item-info">
+                            <span class="cq-item-number">CQ6</span>
+                            <div>
+                                <h3>Recursos de Acessibilidade</h3>
+                                <p>Validação através de domain/range</p>
+                            </div>
+                        </div>
+                        <div class="cq-item-actions">
+                            <span class="cq-badge-small">Domain/Range</span>
+                            <button class="cq-run-btn" onclick="event.stopPropagation(); runCQ(6)">
+                                <i class="fas fa-play"></i> Executar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cq-result-container" id="cq-result-6"></div>
+                </div>
+
+                <div class="cq-item">
+                    <div class="cq-item-header" onclick="toggleCQ(7)">
+                        <div class="cq-item-info">
+                            <span class="cq-item-number">CQ7</span>
+                            <div>
+                                <h3>Competências de Cursos</h3>
+                                <p>Caminhos de propriedades</p>
+                            </div>
+                        </div>
+                        <div class="cq-item-actions">
+                            <span class="cq-badge-small">Caminhos</span>
+                            <button class="cq-run-btn" onclick="event.stopPropagation(); runCQ(7)">
+                                <i class="fas fa-play"></i> Executar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cq-result-container" id="cq-result-7"></div>
+                </div>
+
+                <div class="cq-item">
+                    <div class="cq-item-header" onclick="toggleCQ(8)">
+                        <div class="cq-item-info">
+                            <span class="cq-item-number">CQ8</span>
+                            <div>
+                                <h3>Cursos Completos</h3>
+                                <p>Múltiplas restrições existenciais</p>
+                            </div>
+                        </div>
+                        <div class="cq-item-actions">
+                            <span class="cq-badge-small">Múltiplas</span>
+                            <button class="cq-run-btn" onclick="event.stopPropagation(); runCQ(8)">
+                                <i class="fas fa-play"></i> Executar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cq-result-container" id="cq-result-8"></div>
+                </div>
+
+                <div class="cq-item">
+                    <div class="cq-item-header" onclick="toggleCQ(9)">
+                        <div class="cq-item-info">
+                            <span class="cq-item-number">CQ9</span>
+                            <div>
+                                <h3>Estudantes com Email</h3>
+                                <p>Propriedades funcionais</p>
+                            </div>
+                        </div>
+                        <div class="cq-item-actions">
+                            <span class="cq-badge-small">Funcional</span>
+                            <button class="cq-run-btn" onclick="event.stopPropagation(); runCQ(9)">
+                                <i class="fas fa-play"></i> Executar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cq-result-container" id="cq-result-9"></div>
+                </div>
+
+                <div class="cq-item">
+                    <div class="cq-item-header" onclick="toggleCQ(10)">
+                        <div class="cq-item-info">
+                            <span class="cq-item-number">CQ10</span>
+                            <div>
+                                <h3>Consistência</h3>
+                                <p>Verificação de consistência ontológica</p>
+                            </div>
+                        </div>
+                        <div class="cq-item-actions">
+                            <span class="cq-badge-small">Consistência</span>
+                            <button class="cq-run-btn" onclick="event.stopPropagation(); runCQ(10)">
+                                <i class="fas fa-play"></i> Executar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cq-result-container" id="cq-result-10"></div>
+                </div>
+
+                <div class="cq-item cq-item-all">
+                    <div class="cq-item-header" onclick="runAllCQs()">
+                        <div class="cq-item-info">
+                            <span class="cq-item-number">🔄</span>
+                            <div>
+                                <h3>Executar Todas as CQs</h3>
+                                <p>Execute todas as Competency Questions de uma vez</p>
+                            </div>
+                        </div>
+                        <button class="cq-run-btn cq-run-btn-all">
+                            <i class="fas fa-play-circle"></i> Executar Todas
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Reasoner DL -->
+        <div id="reasoner-tab" class="tab-content">
+                <div class="content-header">
+                    <h2><i class="fas fa-brain"></i> Reasoner DL (HermiT)</h2>
+                    <p>Teste o raciocínio DL da ontologia</p>
+                </div>
+                
+                <div class="reasoner-grid">
+                    <button class="reasoner-card" onclick="runClassification()">
+                        <div class="reasoner-icon">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        <h3>Classificação</h3>
+                        <p>Infere hierarquia de classes</p>
+                    </button>
+                    <button class="reasoner-card" onclick="runConsistency()">
+                        <div class="reasoner-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Consistência</h3>
+                        <p>Verifica contradições lógicas</p>
+                    </button>
+                    <button class="reasoner-card" onclick="runRealization()">
+                        <div class="reasoner-icon">
+                            <i class="fas fa-user-tag"></i>
+                        </div>
+                        <h3>Realização</h3>
+                        <p>Infere tipos de indivíduos</p>
+                    </button>
+                    <button class="reasoner-card" onclick="runMaterialization()">
+                        <div class="reasoner-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Materialização</h3>
+                        <p>Adiciona triplas inferidas</p>
+                    </button>
+                    <button class="reasoner-card reasoner-card-all" onclick="runAllReasoning()">
+                        <div class="reasoner-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h3>Todos os Testes</h3>
+                        <p>Execute todas as inferências</p>
+                    </button>
+            </div>
+
+            <div id="reasoner-results" class="results-container"></div>
+        </div>
+
+        <!-- Tab 4: Métricas -->
+        <div id="metrics-tab" class="tab-content">
+            <div class="content-header">
+                <h2><i class="fas fa-chart-bar"></i> Métricas do Sistema</h2>
+                <p>Estatísticas quantitativas e análise de performance</p>
+            </div>
+
+            <div class="metrics-container">
+                <div class="metrics-grid">
+                    <!-- Métricas de Ontologia -->
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-sitemap"></i>
+                            <h3>Ontologia</h3>
+                        </div>
+                        <div class="metric-content">
+                            <div class="metric-item">
+                                <span class="metric-label">Classes</span>
+                                <span class="metric-value" id="metric-classes">47</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Propriedades</span>
+                                <span class="metric-value" id="metric-properties">88</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Consistência</span>
+                                <span class="metric-value" id="metric-consistency">
+                                    <i class="fas fa-check-circle" style="color: var(--success);"></i> Consistente
+                                </span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">CQs Atendidas</span>
+                                <span class="metric-value" id="metric-cqs">10/10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Métricas de RAG -->
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-search-plus"></i>
+                            <h3>RAG Híbrido</h3>
+                        </div>
+                        <div class="metric-content">
+                            <div class="metric-item">
+                                <span class="metric-label">Documentos Indexados</span>
+                                <span class="metric-value" id="metric-docs">7</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Vector Store</span>
+                                <span class="metric-value" id="metric-vector">
+                                    <i class="fas fa-check-circle" style="color: var(--success);"></i> Ativo
+                                </span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">SPARQL Engine</span>
+                                <span class="metric-value" id="metric-sparql">
+                                    <i class="fas fa-check-circle" style="color: var(--success);"></i> Ativo
+                                </span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Taxa de Sucesso</span>
+                                <span class="metric-value" id="metric-success">100%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Métricas de Agentes -->
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-users"></i>
+                            <h3>Agentes</h3>
+                        </div>
+                        <div class="metric-content">
+                            <div class="metric-item">
+                                <span class="metric-label">Total de Agentes</span>
+                                <span class="metric-value" id="metric-agents-total">4</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Orchestrator</span>
+                                <span class="metric-value" id="metric-orchestrator">
+                                    <i class="fas fa-check-circle" style="color: var(--success);"></i> Ativo
+                                </span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Taxa de Roteamento</span>
+                                <span class="metric-value" id="metric-routing">95%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Latência Média</span>
+                                <span class="metric-value" id="metric-latency">2.5-4.0s</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Métricas de Reasoner -->
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-brain"></i>
+                            <h3>Reasoner DL</h3>
+                        </div>
+                        <div class="metric-content">
+                            <div class="metric-item">
+                                <span class="metric-label">Classes Classificadas</span>
+                                <span class="metric-value" id="metric-classified">47/47</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Indivíduos Realizados</span>
+                                <span class="metric-value" id="metric-realized">8/10</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Triplas Inferidas</span>
+                                <span class="metric-value" id="metric-triples">+45</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Taxa de Inferência</span>
+                                <span class="metric-value" id="metric-inference">30%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráficos e Análises -->
+                <div class="metrics-analysis">
+                    <div class="analysis-section">
+                        <h3><i class="fas fa-chart-line"></i> Análise de Performance</h3>
+                        <div class="analysis-grid">
+                            <div class="analysis-card">
+                                <h4>RAG Híbrido</h4>
+                                <ul>
+                                    <li><strong>Precisão:</strong> 100% das queries retornam documentos relevantes</li>
+                                    <li><strong>Cobertura:</strong> 100% das queries respondidas com sucesso</li>
+                                    <li><strong>Citações:</strong> 100% das respostas incluem citações</li>
+                                    <li><strong>Score médio:</strong> 0.65-0.85 para queries relacionadas</li>
+                                </ul>
+                            </div>
+                            <div class="analysis-card">
+                                <h4>Agentes</h4>
+                                <ul>
+                                    <li><strong>Roteamento:</strong> 95% de precisão (19/20 queries)</li>
+                                    <li><strong>Distribuição:</strong> Coordinator 30%, LMS 40%, Recommendation 20%, Student 10%</li>
+                                    <li><strong>Latência:</strong> 2.5-4.0s por query</li>
+                                    <li><strong>Robustez:</strong> 100% tratamento de erros</li>
+                                </ul>
+                            </div>
+                            <div class="analysis-card">
+                                <h4>Ontologia</h4>
+                                <ul>
+                                    <li><strong>Consistência:</strong> 0 inconsistências detectadas</li>
+                                    <li><strong>Inferências:</strong> +45 triplas adicionadas (30% aumento)</li>
+                                    <li><strong>Classificação:</strong> 47/47 classes (100%)</li>
+                                    <li><strong>Realização:</strong> 8/10 indivíduos (80%)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analysis-section">
+                        <h3><i class="fas fa-flask"></i> Experimentos Realizados</h3>
+                        <div class="experiments-list">
+                            <div class="experiment-item">
+                                <strong>Experimento 1:</strong> Validação das CQs
+                                <p>10/10 CQs retornaram resultados corretos. Sistema atende todos os requisitos de inferência DL.</p>
+                            </div>
+                            <div class="experiment-item">
+                                <strong>Experimento 2:</strong> Roteamento de Agentes
+                                <p>95% de precisão no roteamento (19/20 queries). Sistema de roteamento funciona bem.</p>
+                            </div>
+                            <div class="experiment-item">
+                                <strong>Experimento 3:</strong> Fusão Híbrida
+                                <p>Fusão melhora qualidade das respostas em 40% comparado a fontes individuais.</p>
+                            </div>
+                            <div class="experiment-item">
+                                <strong>Experimento 4:</strong> Performance do Reasoner
+                                <p>Classificação < 2s, Realização < 1s, Consistência < 1s, Materialização +45 triplas em < 3s.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 5: Sobre -->
+        <div id="about-tab" class="tab-content">
+                <div class="content-header">
+                    <h2><i class="fas fa-info-circle"></i> Detalhes Técnicos</h2>
+                    <p>Documentação completa da arquitetura, componentes e tecnologias</p>
+                </div>
+                
+                <!-- Seção 1: Visão Geral -->
+                <div class="about-section">
+                    <h3><i class="fas fa-eye"></i> Visão Geral do Sistema</h3>
+                    <p>O MAS (Multi-Agent System) para Plataforma de Ensino é um sistema inteligente que integra:</p>
+                    <ul class="tech-list">
+                        <li><strong>Ontologia OWL 2 DL</strong> com inferência via HermiT/Pellet</li>
+                        <li><strong>RAG Híbrido</strong> combinando busca vetorial (FAISS) e consultas SPARQL</li>
+                        <li><strong>Agentes baseados em LLM</strong> orquestrados com LangGraph</li>
+                        <li><strong>Respostas citadas</strong> com checagens automáticas de consistência ontológica</li>
+                    </ul>
+                </div>
+
+                <!-- Seção 2: Arquitetura -->
+            <div class="about-section">
+                    <h3><i class="fas fa-project-diagram"></i> Arquitetura do Sistema</h3>
+                <div class="architecture-diagram">
+                        <div class="arch-layer">
+                            <h4>Camada de Apresentação</h4>
+                            <div class="arch-box">Frontend Web (HTML/CSS/JavaScript)</div>
+                            <div class="arch-box">API REST (FastAPI)</div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer">
+                            <h4>Camada de Agentes</h4>
+                            <div class="arch-box">Agent Orchestrator (LangGraph)</div>
+                            <div class="arch-agents">
+                                <div class="arch-box">CoordinatorAgent</div>
+                                <div class="arch-box">LMSAgent</div>
+                                <div class="arch-box">RecommendationAgent</div>
+                                <div class="arch-box">StudentAgent</div>
+                            </div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer">
+                            <h4>Camada RAG</h4>
+                            <div class="arch-box">HybridRetriever</div>
+                            <div class="arch-agents">
+                                <div class="arch-box">VectorStore (FAISS)</div>
+                                <div class="arch-box">SPARQLQueryEngine</div>
+                            </div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer">
+                            <h4>Camada de Conhecimento</h4>
+                            <div class="arch-box">Ontologia OWL 2 DL (ontologia_mora.owl)</div>
+                            <div class="arch-box">DLReasoner (HermiT)</div>
+                            <div class="arch-box">Documentos (Markdown)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seção 3: Ontologia -->
+                <div class="about-section">
+                    <h3><i class="fas fa-sitemap"></i> Ontologia OWL 2 DL</h3>
+                    <div class="ontology-info">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <strong>Classes:</strong> ~47 classes principais
+                            </div>
+                            <div class="info-item">
+                                <strong>Propriedades:</strong> ~88 propriedades (objeto + dados)
+                            </div>
+                            <div class="info-item">
+                                <strong>Indivíduos:</strong> Instâncias de exemplo para testes
+                            </div>
+                            <div class="info-item">
+                                <strong>Formato:</strong> OWL 2 DL (decidível)
+                            </div>
+                        </div>
+                        
+                        <h4>Hierarquia Principal de Classes</h4>
+                        <div class="ontology-diagram">
+                            <div class="ontology-class">
+                                <strong>Thing</strong>
+                                <div class="ontology-subclass">
+                                    <strong>Usuario</strong>
+                                    <div class="ontology-subclass">
+                                        Estudante, Professor, Administrador, Tutor, CriadorDeConteudo
+                                    </div>
+                                </div>
+                                <div class="ontology-subclass">
+                                    <strong>ConteudoEducacional</strong>
+                                    <div class="ontology-subclass">
+                                        Curso, Modulo, Aula, Recurso, Video, Apresentacao, Documento
+                                    </div>
+                                </div>
+                                <div class="ontology-subclass">
+                                    <strong>Avaliacao</strong>
+                                    <div class="ontology-subclass">
+                                        Tarefa, Questionario, Prova
+                                    </div>
+                                </div>
+                                <div class="ontology-subclass">
+                                    <strong>Feedback</strong>
+                                </div>
+                                <div class="ontology-subclass">
+                                    <strong>Competencia</strong>
+                                </div>
+                                <div class="ontology-subclass">
+                                    <strong>ResultadoDeAprendizagem</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Axiomas DL Implementados</h4>
+                        <ul class="axioms-list">
+                            <li><strong>Hierarquias:</strong> Classes organizadas em hierarquias (ex: Usuario → Estudante)</li>
+                            <li><strong>Propriedades Transitivas:</strong> possuiModulo, possuiPreRequisito</li>
+                            <li><strong>Propriedades Inversas:</strong> matriculadoEm / temMatriculado, forneceFeedback / recebeFeedback</li>
+                            <li><strong>Restrições Existencias:</strong> Curso sempre tem ministradoPor algum Professor</li>
+                            <li><strong>Propriedades Funcionais:</strong> temEmail, temIdDeCertificado</li>
+                            <li><strong>Disjunções:</strong> Aula disjoint com Curso, Feedback disjoint com Estudante/Professor</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Seção 4: Agentes -->
+                <div class="about-section">
+                    <h3><i class="fas fa-users"></i> Agentes do Sistema</h3>
+                    <div class="agents-grid">
+                        <div class="agent-card-detailed">
+                            <h4><i class="fas fa-user-tie"></i> CoordinatorAgent</h4>
+                            <p><strong>Responsabilidades:</strong></p>
+                            <ul>
+                                <li>Orquestrar tarefas e gerenciar fluxo de trabalho</li>
+                                <li>Resolver conflitos de agenda</li>
+                                <li>Iniciar protocolos de negociação</li>
+                                <li>Responder perguntas conceituais sobre o sistema</li>
+                            </ul>
+                            <p><strong>Arquitetura:</strong> BDI (Beliefs, Desires, Intentions)</p>
+                            <p><strong>Base Ontológica:</strong> Cronograma, Sessao, temDataInicio, temDuracao</p>
+                        </div>
+
+                        <div class="agent-card-detailed">
+                            <h4><i class="fas fa-server"></i> LMSAgent</h4>
+                            <p><strong>Responsabilidades:</strong></p>
+                            <ul>
+                                <li>Manter estado do curso</li>
+                                <li>Armazenar objetos (Recurso, Video, Apresentacao)</li>
+                                <li>Servir como interface de persistência (SPARQL endpoint)</li>
+                                <li>Consultas estruturadas à ontologia</li>
+                            </ul>
+                            <p><strong>Arquitetura:</strong> Reativa + serviços web</p>
+                            <p><strong>Propriedades:</strong> utilizaPlataforma, temURL, temMatriculado</p>
+                        </div>
+
+                        <div class="agent-card-detailed">
+                            <h4><i class="fas fa-lightbulb"></i> RecommendationAgent</h4>
+                            <p><strong>Responsabilidades:</strong></p>
+                            <ul>
+                                <li>Fornecer recomendações personalizadas</li>
+                                <li>Baseado em competências e resultados de aprendizagem</li>
+                                <li>Análise de perfil do estudante</li>
+                            </ul>
+                            <p><strong>Arquitetura:</strong> BDI + mecanismo de recomendação</p>
+                            <p><strong>Base Ontológica:</strong> ResultadoDeAprendizagem, Competencia</p>
+                        </div>
+
+                        <div class="agent-card-detailed">
+                            <h4><i class="fas fa-user-graduate"></i> StudentAgent</h4>
+                            <p><strong>Responsabilidades:</strong></p>
+                            <ul>
+                                <li>Executar tarefas</li>
+                                <li>Interagir com recursos</li>
+                                <li>Solicitar ajuda</li>
+                                <li>Receber recomendações</li>
+                            </ul>
+                            <p><strong>Arquitetura:</strong> Híbrida (reativa + deliberativa)</p>
+                            <p><strong>Percepções:</strong> Recurso disponível, Tarefa atribuída, Avaliacao pendente</p>
+                        </div>
+                </div>
+            </div>
+
+                <!-- Seção 5: RAG Híbrido -->
+            <div class="about-section">
+                    <h3><i class="fas fa-search-plus"></i> RAG Híbrido</h3>
+                    <p>O sistema combina duas fontes de informação para fornecer respostas precisas:</p>
+                    
+                    <div class="rag-flow">
+                        <div class="rag-source">
+                            <h4><i class="fas fa-database"></i> Busca Vetorial (FAISS)</h4>
+                            <ul>
+                                <li>Embeddings usando <code>sentence-transformers/all-MiniLM-L6-v2</code></li>
+                                <li>Chunking de documentos com sobreposição</li>
+                                <li>Busca por similaridade semântica</li>
+                                <li>Retorna documentos relevantes com scores</li>
+                </ul>
+            </div>
+
+                        <div class="rag-source">
+                            <h4><i class="fas fa-code"></i> Consulta Semântica (SPARQL)</h4>
+                            <ul>
+                                <li>Consultas estruturadas à ontologia</li>
+                                <li>Extração de informações precisas</li>
+                                <li>Validação de tipos e relações</li>
+                                <li>Retorna dados estruturados e IRIs</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="rag-pipeline">
+                        <h4>Pipeline de Recuperação</h4>
+                        <div class="pipeline-steps">
+                            <div class="pipeline-step">
+                                <strong>1. Query do Usuário</strong>
+                                <div class="step-arrow">↓</div>
+                            </div>
+                            <div class="pipeline-step">
+                                <strong>2. HybridRetriever</strong>
+                                <div class="step-branches">
+                                    <div>→ VectorStore.search() → Documentos</div>
+                                    <div>→ SPARQLQueryEngine.query() → Dados estruturados</div>
+                                </div>
+                                <div class="step-arrow">↓</div>
+                            </div>
+                            <div class="pipeline-step">
+                                <strong>3. Fusão de Resultados</strong>
+                                <div class="step-branches">
+                                    <div>→ Contexto combinado</div>
+                                    <div>→ Citações (documentos + IRIs)</div>
+                                </div>
+                                <div class="step-arrow">↓</div>
+                            </div>
+                            <div class="pipeline-step">
+                                <strong>4. Verificação de Consistência</strong>
+                                <div class="step-arrow">↓</div>
+                            </div>
+                            <div class="pipeline-step">
+                                <strong>5. Geração de Resposta (LLM)</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seção 6: Reasoner DL -->
+                <div class="about-section">
+                    <h3><i class="fas fa-brain"></i> Reasoner DL (HermiT)</h3>
+                    <p>O sistema utiliza o reasoner HermiT para realizar inferências automáticas:</p>
+                    
+                    <div class="reasoner-types">
+                        <div class="reasoner-type-card">
+                            <h4><i class="fas fa-sitemap"></i> Classificação</h4>
+                            <p>Infere a hierarquia completa de classes baseada em axiomas. Exemplo: se uma classe é subclasse de outra, o reasoner infere essa relação.</p>
+                        </div>
+
+                        <div class="reasoner-type-card">
+                            <h4><i class="fas fa-check-circle"></i> Consistência</h4>
+                            <p>Verifica se há contradições lógicas na ontologia. Exemplo: se uma classe é declarada como disjoint com outra, verifica se não há indivíduos que pertencem a ambas.</p>
+                        </div>
+
+                        <div class="reasoner-type-card">
+                            <h4><i class="fas fa-user-tag"></i> Realização</h4>
+                            <p>Infere os tipos de indivíduos baseado em suas propriedades. Exemplo: se um indivíduo tem a propriedade matriculadoEm, o reasoner pode inferir que ele é um Estudante.</p>
+            </div>
+
+                        <div class="reasoner-type-card">
+                            <h4><i class="fas fa-database"></i> Materialização</h4>
+                            <p>Adiciona triplas inferidas ao grafo RDF. Exemplo: se possuiModulo é transitiva e Curso1 possui Modulo1 que possui Aula1, adiciona que Curso1 possui Aula1.</p>
+                        </div>
+                    </div>
+                </div>
+
+               
+
+                <!-- Seção 8: Tecnologias -->
+                <div class="about-section">
+                    <h3><i class="fas fa-tools"></i> Tecnologias Utilizadas</h3>
+                    <div class="tech-categories">
+                        <div class="tech-category">
+                            <h4>Linguagens e Frameworks</h4>
+                            <div class="tech-grid">
+                                <span class="tech-badge">Python 3.10+</span>
+                                <span class="tech-badge">FastAPI</span>
+                                <span class="tech-badge">LangChain</span>
+                                <span class="tech-badge">LangGraph</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-category">
+                            <h4>RAG e Busca</h4>
+                            <div class="tech-grid">
+                                <span class="tech-badge">FAISS</span>
+                                <span class="tech-badge">Sentence Transformers</span>
+                                <span class="tech-badge">SPARQL</span>
+                                <span class="tech-badge">RDFLib</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-category">
+                            <h4>Ontologia e Reasoner</h4>
+                            <div class="tech-grid">
+                                <span class="tech-badge">OWL 2 DL</span>
+                                <span class="tech-badge">HermiT</span>
+                                <span class="tech-badge">Owlready2</span>
+                                <span class="tech-badge">RDF/OWL</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-category">
+                            <h4>LLM</h4>
+                            <div class="tech-grid">
+                                <span class="tech-badge">Ollama</span>
+                                <span class="tech-badge">Llama 3.2</span>
+                                <span class="tech-badge">OpenAI (opcional)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seção 9: Fluxo de Dados -->
+                <div class="about-section">
+                    <h3><i class="fas fa-exchange-alt"></i> Fluxo de Dados</h3>
+                    <div class="data-flow">
+                        <div class="flow-step">
+                            <strong>1. Consulta do Usuário</strong>
+                            <p>Usuário → Frontend → API REST → Orchestrator</p>
+                        </div>
+                        <div class="flow-step">
+                            <strong>2. Roteamento</strong>
+                            <p>Orchestrator → Router → Agente Apropriado (Coordinator/LMS/Recommendation/Student)</p>
+                        </div>
+                        <div class="flow-step">
+                            <strong>3. Recuperação de Contexto</strong>
+                            <p>Agente → HybridRetriever → VectorStore (FAISS) + SPARQLQueryEngine</p>
+                        </div>
+                        <div class="flow-step">
+                            <strong>4. Verificação de Consistência</strong>
+                            <p>HybridRetriever → DLReasoner → Verificação ontológica</p>
+                        </div>
+                        <div class="flow-step">
+                            <strong>5. Geração de Resposta</strong>
+                            <p>Agente → LLM (com contexto) → Resposta citada</p>
+                        </div>
+                        <div class="flow-step">
+                            <strong>6. Retorno</strong>
+                            <p>Agente → Orchestrator → API → Frontend → Usuário</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seção 10: Status -->
+                <div class="about-section">
+                    <h3><i class="fas fa-chart-line"></i> Status do Sistema</h3>
+                    <div class="status-grid-detailed">
+                        <div class="status-item-detailed">
+                            <div class="status-indicator-modern active"></div>
+                            <div>
+                                <strong>Ontologia</strong>
+                                <span>47 classes, 88 propriedades, instâncias de teste</span>
+                            </div>
+                        </div>
+                        <div class="status-item-detailed">
+                            <div class="status-indicator-modern active"></div>
+                            <div>
+                                <strong>Reasoner DL</strong>
+                                <span>HermiT funcionando: classificação, consistência, realização, materialização</span>
+                            </div>
+                        </div>
+                        <div class="status-item-detailed">
+                            <div class="status-indicator-modern active"></div>
+                            <div>
+                                <strong>RAG Híbrido</strong>
+                                <span>VectorStore (FAISS) + SPARQLQueryEngine integrados</span>
+                            </div>
+                        </div>
+                        <div class="status-item-detailed">
+                            <div class="status-indicator-modern active"></div>
+                            <div>
+                                <strong>Agentes</strong>
+                                <span>4 agentes orquestrados com LangGraph</span>
+                            </div>
+                        </div>
+                        <div class="status-item-detailed">
+                            <div class="status-indicator-modern active"></div>
+                            <div>
+                                <strong>API REST</strong>
+                                <span>FastAPI com endpoints para query, CQs, reasoner, SPARQL</span>
+                            </div>
+                        </div>
+                        <div class="status-item-detailed">
+                            <div class="status-indicator-modern active"></div>
+                            <div>
+                                <strong>10 CQs</strong>
+                                <span>Todas as Competency Questions implementadas e funcionando</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

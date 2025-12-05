@@ -1,0 +1,46 @@
+# Build tools
+setuptools>=65.0.0
+wheel>=0.40.0
+
+# Core dependencies
+langchain>=0.1.0
+langchain-openai>=0.0.2  # Opcional - só se usar OpenAI
+langchain-ollama>=0.1.0  # Para modelos locais (Llama via Ollama)
+langgraph>=0.0.20
+langchain-community>=0.0.10
+
+# RAG and Vector Store
+faiss-cpu>=1.9.0
+chromadb>=0.4.18
+sentence-transformers>=2.2.2
+
+# Ontology and SPARQL
+rdflib>=7.0.0
+owlready2>=0.39
+sparqlwrapper>=2.0.0
+
+# Document processing
+pypdf>=3.17.0
+python-docx>=1.1.0
+markdown>=3.5.0
+beautifulsoup4>=4.12.0
+
+# API and Web
+fastapi>=0.104.0
+uvicorn>=0.24.0
+pydantic>=2.5.0
+
+# Utilities
+python-dotenv>=1.0.0
+numpy>=1.26.0
+pandas>=2.1.0
+networkx>=3.2.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+
+# Jupyter for notebooks
+jupyter>=1.0.0
+ipykernel>=6.26.0
+

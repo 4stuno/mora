@@ -1,0 +1,26 @@
+{
+  "documents": [
+    {
+      "file": "introducao_ontologias.md",
+      "source": "Material do curso 'Introdução à Engenharia de Ontologias'",
+      "date": "2024",
+      "theme": "Fundamentos de Ontologias",
+      "type": "markdown"
+    },
+    {
+      "file": "rag_sistemas.md",
+      "source": "Material do curso 'Sistemas Inteligentes para Educação'",
+      "date": "2024",
+      "theme": "RAG e Sistemas de Recuperação",
+      "type": "markdown"
+    },
+    {
+      "file": "agentes_multiagente.md",
+      "source": "Material do curso 'Sistemas Multiagente'",
+      "date": "2024",
+      "theme": "Arquitetura de Agentes",
+      "type": "markdown"
+    }
+  ]
+}
+

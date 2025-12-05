@@ -1,0 +1,2 @@
+"""Módulo RAG híbrido."""
+
